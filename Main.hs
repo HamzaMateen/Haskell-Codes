@@ -9,6 +9,14 @@ doubleSmallerNumber x =
     then x
     else 2 * x
 
+max' :: (Ord a) => [a] -> a
+max' [] = error "Empty list"
+max' [x] = x
+max' (x:xs) = 
+     | x > maxTail = x
+     | otherwise = maxTail
+      where maxTail = max' xs
+
 doubleSmallerNumber' x = (if x > 100 then x else x * 2) + 1
 
 -- lists and more functions
